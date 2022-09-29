@@ -30,7 +30,7 @@ class Home(View):
             new_url.save()
         data={
             'link':url,
-            'url':'Your Link: &nbsp;&nbsp; localhost:8000/'+uid,
+            'url':'Your Link: &nbsp;&nbsp; qurl.pythonanywhere.com/'+uid,
         }
         return render(request,"home.html",data)
 

@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+<!-- all the magic is here  -->
+<div class="container">
+    <div class="modal-header text-center">
+        <h2 class="modal-title w-600">Create account at Q_<span style="color: red;">Url </span></span></h2>
+    </div>
+    <br>
+{% include 'messages.html'%}
+<form class="form-horizontal" method="post">
+    {% csrf_token %}
+    <br>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email:</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" value="{{email}}" name="email" placeholder="Enter your email..." autocomplete="off">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Username:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" value="{{username}}" name="username" placeholder="Choose a username..."
+                autocomplete="off">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Password:</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" value="{{password}}" name="password1" placeholder="Enter a password...">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Re-Type Password:</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" name="password2" placeholder="Re-type password..." value="{{password}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label><input type="checkbox" name="agree"> I Agree to <a href="#">Terms and Conditions</a> of Q_Url 2022</label>
+    
+            </div>
+        </div>
+    </div>
+        <div class="form-group" style="margin-top: 30px;">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class=" col-sm-10">
+                <button type="submit" class="btn btn-primary login-btn">Create Account</button>
+            </div> 
+            
+        </div>
+        </div>
+</form>
+</div>
+{% endblock %}

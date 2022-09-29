@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="modal-header text-center">
+        <h2 class="modal-title w-600 ">My Urls </span></span></h2>
+    </div>
+    <br>
+    {% include 'messages.html' %}
+        {%if not links %}
+        <div class="card mb-4">
+            <div class="row">
+                <div class="col-sm-10">
+                    <h3 class="text-center p-2">No Urls registered yet!</h3>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+            {%for link in links %}
+
+    <div class="card mb-4" style="margin-top: 10px;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4>{{link.link}}</h4>
+                    </div>
+                <div class="col-sm-4 mt-3">
+                    <a href="http://localhost:8000/{{link.uuid}}" class="card-text h4 " style="color: greenyellow; font-weight: 800;">https://localhost:8000/{{link.uuid}}</a>
+                </div>
+                <div class="col-sm-3">
+                    <h4>{{link.created_on}}</h4>
+                </div>
+                <div class="col-sm-2">
+                    <a href="/delete/{{link.id}}" class="btn btn-danger">Delete</a>
+                </div>
+
+            </div>
+        </div>  
+
+  </div>
+            {% endfor %}
+
+</div>
+{% endblock %}

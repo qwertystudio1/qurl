@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+    <div class="modal-header text-center">
+        <h2 class="modal-title w-600 ">Login to Q_<span style="color: red;">Url </span></span></h2>
+    </div>
+    <br>
+        {% include 'messages.html' %}
+
+<form class="form-horizontal" method="post">
+    <br>
+    {% csrf_token %}
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="Username">Username:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="username" value="{{username}}"placeholder="Username" autocomplete="off" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="Password">Password:</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" name="password" placeholder="Enter password" autocomplete="off" value="{{password}}" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+                <label> <a href="" class="link"> Forgot Password </a></label>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button style="color: black; font-weight: 700; border: none;padding: 10px 20px;" type="submit" class="btn btn-primary login-btn">Login</button>
+        </div>
+    </div>
+</form>
+</div>
+{% endblock %}

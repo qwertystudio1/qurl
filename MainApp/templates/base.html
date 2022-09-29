@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{%static 'base.css'%}">
+    <link rel="stylesheet" href="{%static 'navbar.css'%}">
+
+    <!-- Bootstrap CSS -->
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200&display=swap"
+        rel="stylesheet">
+    
+    <!--fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <title>Q_Url | Url-Shortener</title>
+</head>
+<body>
+    <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+        <div class="container">
+            <a style="background-color: rgba(94, 90, 90, 0.11);" class="navbar-brand l navbar-left js-scroll" href=""><span class="color-text">Q_<span style="color: brown;">Url</span> </span></a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="  navbar-collapse  collapse justify-content-end" id="navbarDefault">
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item"> <a class="nav-link l js-scroll active" href="/">Home</a></li>
+                    <li class="nav-item"> <a class="nav-link l js-scroll ml-2 mr-4" href="#">About Us</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"> <a style="color:greenyellow; font-weight: 900;" class="nav-link l js-scroll mr-3" href="/account"><span class="glyphicon glyphicon-user"></span>{{request.user}}</a></li>
+                    <li class="nav-item "><a class="nav-link js-scroll btn btn-danger p-3 mt-1 ml-2" href="/logout">Logout</a></li>
+                    {%else%}
+                    <li class="nav-item "><a class="nav-link js-scroll btn btn-primary p-3 mt-1 ml-2" href="/login">Login</a></li>
+                    <li class="nav-item "><a style="color:black;" class="nav-link js-scroll btn btn-default p-3 mt-1 ml-2" href="/register">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    {% block content %}
+
+    {% endblock %}
+    <footer class="bg-dark text-center text-white">
+        <div class="text-center p-3" style="background-color: black; padding: 15px;">
+            © 2022 Copyright Q_Url . Coded with love by EliezerNsengi at QwerTy<span style="color:orangered">STUDIOS </span>LLC.
+        </div>
+    </footer>
+    <script src="{%static 'main.js'%}"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+</body>
+</html>
